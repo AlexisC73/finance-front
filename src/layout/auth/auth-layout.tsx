@@ -5,18 +5,15 @@ import AuthImage from "@/assets/auth.png";
 export default function AuthLayout() {
   return (
     <main className="w-full h-screen flex flex-col lg:flex-row">
-      <div className="bg-grey-900 px-10 py-6 lg:hidden">
-        <BrandIcon className="mx-auto" />
-      </div>
-      <div id="side-image" className="w-150 h-screen hidden lg:block p-5">
-        <div className="relative">
-          <BrandIcon className="absolute top-10 left-10" />
+      <div className="w-full bg-grey-900 lg:bg-transparent lg:w-150 lg:min-h-screen lg:block p-5">
+        <div className="lg:relative">
+          <BrandIcon className="mx-auto lg:absolute top-10 left-10" />
           <img
             src={AuthImage}
             alt="Logo"
-            className="w-full h-full object-cover rounded-3"
+            className="w-full h-full object-cover rounded-3 hidden lg:block"
           />
-          <div className="absolute bottom-0 left-0 text-white p-10 flex flex-col gap-y-6">
+          <div className="hidden lg:flex lg:absolute bottom-0 left-0 text-white p-10 flex-col gap-y-6">
             <h2 className="text-8 font-bold line-height-120%">
               Keep track of your money
               <br /> and save for your future
