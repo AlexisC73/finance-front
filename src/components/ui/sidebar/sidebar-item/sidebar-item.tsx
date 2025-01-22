@@ -5,21 +5,25 @@ export default function SidebarItem({
   Icon,
   href,
   name,
+  sidebarOpen,
 }: {
   active?: boolean;
   Icon: React.FC<{ className?: string }>;
   href?: string;
   name: string;
+  sidebarOpen: boolean;
 }) {
   return (
     <Link
       to={href || "#"}
-      className={`text-grey-900 border-b-4 pt-2 pb-3 w-full rounded-t-2 xl:border-b-none xl:border-l-4 xl:rounded-l-none xl:rounded-r-3 xl:py-4 xl:px-8 ${active ? "bg-beige-100 border-green" : "border-transparent"}`}
+      className={`text-grey-900 border-b-4 pt-2 pb-3 w-full rounded-t-2 xl:border-b-none  xl:border-l-4 xl:rounded-l-none xl:rounded-r-3 xl:py-4 ${active ? "bg-beige-100 border-green" : "border-transparent"} ${sidebarOpen ? "xl:px-8" : "xl:flex xl:justify-end xl:pr-6"}`}
     >
-      <div className="flex flex-col items-center gap-y-1 xl:flex-row xl:items-center xl:gap-x-4">
-        <Icon className={`text-6 ${active ? "text-green" : "text-grey-300"}`} />
+      <div
+        className={`flex flex-col items-center gap-y-1 xl:flex-row xl:items-center xl:gap-x-4 ${active ? "" : "text-grey-300 hover:text-white"}`}
+      >
+        <Icon className={`text-6 ${active ? "text-green" : ""}`} />
         <p
-          className={`font-bold text-3 xl:text-4 line-height-150% hidden md:inline-block xl:mt-.6 ${active ? "text-grey-900" : "text-grey-300"}`}
+          className={`font-bold text-3 xl:text-4 line-height-150% hidden md:inline-block ${active ? "text-grey-900" : ""} ${sidebarOpen ? "xl:block" : "xl:hidden"}`}
         >
           {name}
         </p>
