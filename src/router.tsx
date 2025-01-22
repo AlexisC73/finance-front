@@ -3,6 +3,7 @@ import { HomePage } from "./pages/Home";
 import SigninPage from "./pages/auth/signin/signin-page";
 import AuthLayout from "./layout/auth/auth-layout";
 import SignupPage from "./pages/auth/signup/signup-page";
+import SidebarLayout from "./layout/sidebar-layout";
 
 export const createRouter = () =>
   createBrowserRouter([
@@ -22,6 +23,7 @@ export const createRouter = () =>
     },
     {
       path: "/",
-      Component: () => <HomePage />,
+      Component: () => <SidebarLayout />,
+      children: [{ path: "/", Component: () => <HomePage /> }],
     },
   ]);
