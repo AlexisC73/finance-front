@@ -12,10 +12,10 @@ export default function SidebarLayout() {
 
   return (
     <div className="flex">
-      <div id="sidebar">
+      <div id="sidebar" className="sticky top-0 h-screen">
         <Sidebar sidebarOpen={open} toggleOpen={handleToggleSidebar} />
       </div>
-      <main className="flex-1 px-10 py-8">
+      <main className="flex-1 px-4 md:px-10 h-800">
         <Outlet />
       </main>
     </div>
