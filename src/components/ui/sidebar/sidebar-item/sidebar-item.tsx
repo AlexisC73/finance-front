@@ -25,7 +25,7 @@ export default function SidebarItem({
           className={`text-6 min-h-6 min-w-6 ${active ? "text-green" : ""}`}
         />
         <p
-          className={`font-bold text-3 xl:text-4 line-height-150% hidden md:inline-block flex-1 ${active ? "text-grey-900" : ""} ${sidebarOpen ? "xl:block" : "xl:hidden"}`}
+          className={`font-bold text-3 xl:text-4 line-height-150% hidden md:inline-block flex-1 truncate ${active ? "text-grey-900" : ""} ${sidebarOpen ? "xl:block" : "xl:hidden"}`}
         >
           {name}
         </p>

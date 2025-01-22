@@ -62,12 +62,13 @@ export default function Sidebar({
         />
       </div>
       <div className="pl-8 text-grey-300 hidden xl:block">
-        <button onClick={toggleOpen} className="flex items-center gap-x-4">
-          <MinimizeIcon
-            className={`text-6 xl:min-h-6 xl:min-w-6 ${sidebarOpen ? "rotate-0" : "rotate-180"}`}
-          />
+        <button
+          onClick={toggleOpen}
+          className={`flex items-center gap-x-4 transition-all duration-300 hover:text-white ${sidebarOpen ? "rotate-0" : "rotate-180"}`}
+        >
+          <MinimizeIcon className={`text-6 xl:min-h-6 xl:min-w-6`} />
           <span
-            className={`line-height-150% font-bold text-4 h-6 ${sidebarOpen ? "xl:block" : "xl:hidden"}`}
+            className={`flex-1 truncate line-height-150% font-bold text-4 h-6 ${sidebarOpen ? "xl:block" : "xl:hidden"}`}
           >
             Minimize Menu
           </span>
