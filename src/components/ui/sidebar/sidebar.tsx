@@ -9,10 +9,11 @@ import {
   TransactionIcon,
 } from "@/assets/icons/icons";
 import SidebarItem from "./sidebar-item/sidebar-item";
-import { useState } from "react";
+import { useContext } from "react";
+import { SidebarCtx } from "@/context/sidebar/sidebar";
 
 export default function Sidebar() {
-  const [sidebarOpen, setSidebarOpen] = useState(true);
+  const { open: sidebarOpen, setOpen: setSidebarOpen } = useContext(SidebarCtx);
 
   const handleToggleSidebar = () => {
     setSidebarOpen((prev) => !prev);
@@ -32,6 +33,7 @@ export default function Sidebar() {
       <div className="flex w-full xl:flex-col xl:gap-y-1 flex-1">
         <SidebarItem
           name="Home"
+          href="/"
           active={true}
           Icon={HomeIcon}
           sidebarOpen={sidebarOpen}

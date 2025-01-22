@@ -5,11 +5,14 @@ import "virtual:uno.css";
 import "@unocss/reset/tailwind.css";
 import { RouterProvider } from "react-router-dom";
 import { createRouter } from "./router.tsx";
+import { SidebarProvider } from "./context/sidebar/sidebar-proviter.tsx";
 
 const router = createRouter();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <SidebarProvider>
+      <RouterProvider router={router} />
+    </SidebarProvider>
   </StrictMode>,
 );
