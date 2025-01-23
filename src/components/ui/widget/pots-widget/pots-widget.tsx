@@ -5,7 +5,7 @@ import PotsDetailList from "./pots-detail-list/pots-detail-list";
 export function PotsWidget() {
   return (
     <div className="bg-white flex w-full flex-col py-6 px-5 gap-y-5 rounded-3">
-      <WidgetHeader title="Pots" href="/pots" linkName="View All" />
+      <WidgetHeader title="Pots" href="/pots" linkName="See Details" />
       <div className="w-full flex flex-col gap-y-5">
         <div className="w-full flex bg-beige-100 rounded-3 py-5 px-4 items-center gap-x-4">
           <PotsIconOutline className="text-10 text-green" />
