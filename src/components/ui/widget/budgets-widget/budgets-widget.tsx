@@ -86,7 +86,7 @@ export default function BudgetsWidget() {
             </p>
           </div>
         </div>
-        <div className="grid cols-2 gap-4 md:flex md:flex-col">
+        <div className="grid cols-2 w-full gap-4 md:flex md:flex-col">
           {BUDGETS.map((budget) => (
             <BudgetsItem
               amount={budget.goal}
