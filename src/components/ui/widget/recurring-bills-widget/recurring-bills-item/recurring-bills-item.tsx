@@ -1,3 +1,5 @@
+import { COLORS } from "@/theme/colors";
+
 export default function RecurringBillsItem({
   category,
   amount,
@@ -5,14 +7,14 @@ export default function RecurringBillsItem({
 }: {
   category: string;
   amount: string;
-  color: string;
+  color: COLORS;
 }) {
   const colorClass =
-    color === "green"
+    color === COLORS.GREEN
       ? "border-green"
-      : color === "yellow"
+      : color === COLORS.YELLOW
         ? "border-yellow"
-        : color === "blue"
+        : color === COLORS.BLUE
           ? "border-blue"
           : "";
   return (

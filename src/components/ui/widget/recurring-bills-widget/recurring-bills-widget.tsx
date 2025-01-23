@@ -1,3 +1,4 @@
+import { COLORS } from "@/theme/colors";
 import { WidgetHeader } from "../widget-header/widget-header";
 import RecurringBillsItem from "./recurring-bills-item/recurring-bills-item";
 
@@ -5,17 +6,17 @@ const CATEGORY_BILLS = [
   {
     category: "Paid Bills",
     amount: "190",
-    color: "green",
+    color: COLORS.GREEN,
   },
   {
     category: "Total Upcoming",
     amount: "194.98",
-    color: "yellow",
+    color: COLORS.YELLOW,
   },
   {
     category: "Due Soon",
     amount: "59.98",
-    color: "blue",
+    color: COLORS.BLUE,
   },
 ];
 
