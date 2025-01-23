@@ -8,7 +8,7 @@ const TRANSACTIONS = [
     amount: "75.50",
     destination: "Emma Richardson",
     imageUrl: "https://placehold.co/40",
-    date: new Date("2024 08 19"),
+    date: new Date("2024-08-19"),
     gain: true,
   },
   {
@@ -16,7 +16,7 @@ const TRANSACTIONS = [
     amount: "75.50",
     destination: "Emma Richardson",
     imageUrl: "https://placehold.co/40",
-    date: new Date("2024 08 19"),
+    date: new Date("2024-08-19"),
     gain: true,
   },
   {
@@ -24,7 +24,7 @@ const TRANSACTIONS = [
     amount: "75.50",
     destination: "Emma Richardson",
     imageUrl: "https://placehold.co/40",
-    date: new Date("2024 08 19"),
+    date: new Date("2024-08-19"),
     gain: true,
   },
   {
@@ -32,7 +32,7 @@ const TRANSACTIONS = [
     amount: "75.50",
     destination: "Emma Richardson",
     imageUrl: "https://placehold.co/40",
-    date: new Date("2024 08 19"),
+    date: new Date("2024-08-19"),
     gain: true,
   },
 ];
