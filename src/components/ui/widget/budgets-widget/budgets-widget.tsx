@@ -39,7 +39,7 @@ export default function BudgetsWidget() {
       <WidgetHeader title="Budgets" href="/budgets" linkName="See Details" />
       <div className="flex flex-col flex-1 gap-y-4 md:flex-row md:justify-center items-center md:gap-x-4">
         <BudgetCircle budgets={BUDGETS} />
-        <div className="grid cols-2 w-full gap-4 md:flex md:flex-col">
+        <div className="grid cols-2 w-full md:w-auto gap-4 md:flex md:flex-col">
           {BUDGETS.map((budget) => (
             <BudgetsItem
               amount={budget.goal}
