@@ -1,18 +1,20 @@
+import { COLORS } from "@/theme/colors";
+
 export default function PotsDetailItem({
-  color = "grey",
+  color = COLORS.NAVY,
   title,
   amount,
 }: {
-  color?: string;
+  color?: COLORS;
   title: string;
   amount: string;
 }) {
   const borderColor =
-    color === "green"
+    color === COLORS.GREEN
       ? "bg-green"
-      : color === "blue"
+      : color === COLORS.CYAN
         ? "bg-cyan"
-        : color === "yellow"
+        : color === COLORS.YELLOW
           ? "bg-yellow"
           : "bg-navy";
   return (
