@@ -21,7 +21,7 @@ const CATEGORY_BILLS = [
 
 export default function RecurringBillsWidget() {
   return (
-    <div className="bg-white px-5 py-6 rounded-3 flex flex-col gap-y-8">
+    <div className="bg-white px-5 py-6 rounded-3 flex flex-col gap-y-8 md:p-8">
       <WidgetHeader
         href="/recurring-bills"
         linkName="See Details"

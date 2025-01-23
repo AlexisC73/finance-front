@@ -39,7 +39,7 @@ const TRANSACTIONS = [
 
 export default function TransactionWidget() {
   return (
-    <div className="bg-white flex flex-col gap-y-8 px-5 py-6 rounded-3">
+    <div className="bg-white flex flex-col gap-y-8 px-5 py-6 md:p-8 rounded-3">
       <WidgetHeader
         title="Transactions"
         href="/transactions"
