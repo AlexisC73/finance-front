@@ -1,3 +1,5 @@
+import { COLORS } from "@/theme/colors";
+
 export default function BudgetsItem({
   title,
   amount,
@@ -5,14 +7,14 @@ export default function BudgetsItem({
 }: {
   title: string;
   amount: string;
-  color: string;
+  color: COLORS;
 }) {
   const borderColor =
-    color === "green"
+    color === COLORS.GREEN
       ? "bg-green"
-      : color === "blue"
+      : color === COLORS.CYAN
         ? "bg-cyan"
-        : color === "yellow"
+        : color === COLORS.YELLOW
           ? "bg-yellow"
           : "bg-navy";
   return (

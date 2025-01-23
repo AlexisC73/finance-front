@@ -1,3 +1,4 @@
+import { COLORS, THEME_COLORS } from "@/theme/colors";
 import { useLayoutEffect, useRef } from "react";
 
 export default function BudgetCircle({
@@ -7,13 +8,12 @@ export default function BudgetCircle({
     name: string;
     goal: string;
     current: string;
-    color: string;
-    colorName: string;
+    color: COLORS;
   }[];
 }) {
   const circleRef = useRef<HTMLDivElement>(null);
   const getGradient = (
-    budgets: { name: string; goal: string; color: string }[],
+    budgets: { name: string; goal: string; color: COLORS }[],
   ) => {
     const totalAmount = budgets.reduce(
       (acc, curr) => acc + parseInt(curr.goal),
@@ -27,7 +27,7 @@ export default function BudgetCircle({
     let currentPercentage = 0;
 
     const gradientsCSS = colorPercentages.map((colorPercentage) => {
-      const cssProperty = `${colorPercentage.color} ${currentPercentage}% ${currentPercentage + colorPercentage.percentage}%`;
+      const cssProperty = `${THEME_COLORS[colorPercentage.color]} ${currentPercentage}% ${currentPercentage + colorPercentage.percentage}%`;
       currentPercentage += colorPercentage.percentage;
       return cssProperty;
     });
