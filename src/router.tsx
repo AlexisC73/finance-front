@@ -5,6 +5,7 @@ import AuthLayout from "./layout/auth/auth-layout";
 import SignupPage from "./pages/auth/signup/signup-page";
 import SidebarLayout from "./layout/sidebar-layout";
 import BudgetsPage from "./pages/Budgets";
+import PotsPage from "./pages/Pots";
 
 export const createRouter = () =>
   createBrowserRouter([
@@ -28,6 +29,7 @@ export const createRouter = () =>
       children: [
         { path: "/", Component: () => <HomePage /> },
         { path: "/budgets", Component: () => <BudgetsPage /> },
+        { path: "/pots", Component: () => <PotsPage /> },
       ],
     },
   ]);

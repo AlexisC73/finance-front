@@ -53,6 +53,7 @@ export default function Sidebar({
         />
         <SidebarItem
           name="Pots"
+          href="/pots"
           active={currentPathname === "/pots"}
           Icon={PotIcon}
           sidebarOpen={sidebarOpen}

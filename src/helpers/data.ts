@@ -97,3 +97,47 @@ export const BUDGETS_TRANSACTIONS: {
     ],
   },
 ];
+
+export const POTS: {
+  id: number;
+  name: string;
+  color: COLORS;
+  saved: string;
+  goal: string;
+}[] = [
+  {
+    id: 1,
+    name: "Savings",
+    color: COLORS.GREEN,
+    saved: "159",
+    goal: "2000",
+  },
+  {
+    id: 2,
+    name: "Concert Tickets",
+    color: COLORS.NAVY,
+    saved: "110",
+    goal: "150",
+  },
+  {
+    id: 3,
+    name: "Gift",
+    color: COLORS.CYAN,
+    saved: "40",
+    goal: "60",
+  },
+  {
+    id: 4,
+    name: "New Laptop",
+    color: COLORS.YELLOW,
+    saved: "10",
+    goal: "1000",
+  },
+  {
+    id: 5,
+    name: "Holiday",
+    color: COLORS.PURPLE,
+    saved: "531",
+    goal: "1440",
+  },
+];

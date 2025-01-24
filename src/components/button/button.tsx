@@ -6,7 +6,9 @@ export default function Button({
   children,
   type = "primary",
   action,
+  fullWidth = false,
 }: PropsWithChildren & {
+  fullWidth?: boolean;
   type?: Type;
   action?: () => void;
 }) {
@@ -20,7 +22,10 @@ export default function Button({
     tertiary: "text-grey-500 text-preset-4 hover:text-grey-900",
   };
   return (
-    <button onClick={action} className={buttonStyles[type]}>
+    <button
+      onClick={action}
+      className={buttonStyles[type] + (fullWidth ? " w-full" : "")}
+    >
       {children}
     </button>
   );
