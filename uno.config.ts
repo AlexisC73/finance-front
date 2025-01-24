@@ -45,6 +45,15 @@ const safelist = [
 export default defineConfig({
   presets: [presetUno()],
   safelist,
+  shortcuts: {
+    "text-preset-1": "font-bold text-8 line-height-120%",
+    "text-preset-2": "font-bold text-5 line-height-120%",
+    "text-preset-3": "font-bold text-4 line-height-150%",
+    "text-preset-4": "text-3.5 line-height-150%",
+    "text-preset-4-bold": "font-bold text-3.5 line-height-150%",
+    "text-preset-5": "text-3 line-height-150%",
+    "text-preset-5-bold": "font-bold text-3 line-height-150%",
+  },
   theme: {
     colors: {
       beige: {
