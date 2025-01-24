@@ -13,9 +13,11 @@ import SidebarItem from "./sidebar-item/sidebar-item";
 export default function Sidebar({
   sidebarOpen,
   toggleOpen,
+  currentPathname,
 }: {
   sidebarOpen: boolean;
   toggleOpen: () => void;
+  currentPathname: string;
 }) {
   return (
     <div
@@ -32,32 +34,32 @@ export default function Sidebar({
         <SidebarItem
           name="Home"
           href="/"
-          active={true}
+          active={currentPathname === "/"}
           Icon={HomeIcon}
           sidebarOpen={sidebarOpen}
         />
         <SidebarItem
           name="Transaction"
-          active={false}
+          active={currentPathname === "/transactions"}
           Icon={TransactionIcon}
           sidebarOpen={sidebarOpen}
         />
         <SidebarItem
           name="Budget"
           href="/budgets"
-          active={false}
+          active={currentPathname === "/budgets"}
           Icon={BudgetIcon}
           sidebarOpen={sidebarOpen}
         />
         <SidebarItem
-          name="Pot"
-          active={false}
+          name="Pots"
+          active={currentPathname === "/pots"}
           Icon={PotIcon}
           sidebarOpen={sidebarOpen}
         />
         <SidebarItem
-          name="Recuring bills"
-          active={false}
+          name="Recurring bills"
+          active={currentPathname === "/recurring-bills"}
           Icon={BillsIcon}
           sidebarOpen={sidebarOpen}
         />
