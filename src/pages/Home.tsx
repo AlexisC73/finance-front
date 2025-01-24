@@ -7,7 +7,7 @@ import TransactionWidget from "@/components/ui/widget/transaction-widget/transac
 
 export function HomePage() {
   return (
-    <div className="flex flex-col gap-y-8 pb-50">
+    <div className="flex flex-col gap-y-8 pb-14">
       <SectionTitle>Overview</SectionTitle>
       <Summary />
       <div className="flex flex-col xl:grid xl:cols-3 gap-x-6 gap-y-4">

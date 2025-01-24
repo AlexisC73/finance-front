@@ -44,6 +44,7 @@ export default function Sidebar({
         />
         <SidebarItem
           name="Budget"
+          href="/budgets"
           active={false}
           Icon={BudgetIcon}
           sidebarOpen={sidebarOpen}
