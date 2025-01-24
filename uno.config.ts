@@ -1,7 +1,30 @@
 import { defineConfig, presetUno } from "unocss";
+import { COLORS } from "./src/theme/colors";
+
+const borderSafelist: { [key in COLORS]: string } = {
+  BLUE: "border-blue",
+  CYAN: "border-cyan",
+  GREEN: "border-green",
+  NAVY: "border-navy",
+  YELLOW: "border-yellow",
+};
+
+const backgroundSafelist: { [key in COLORS]: string } = {
+  BLUE: "bg-blue",
+  CYAN: "bg-cyan",
+  GREEN: "bg-green",
+  NAVY: "bg-navy",
+  YELLOW: "bg-yellow",
+};
+
+const safelist = [
+  ...Object.values(borderSafelist),
+  ...Object.values(backgroundSafelist),
+];
 
 export default defineConfig({
   presets: [presetUno()],
+  safelist,
   theme: {
     colors: {
       beige: {

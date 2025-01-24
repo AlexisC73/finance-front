@@ -1,5 +1,3 @@
-import { assertNever } from "@/helpers/exhaustive-guard";
-
 export enum COLORS {
   "GREEN" = "GREEN",
   "CYAN" = "CYAN",
@@ -16,36 +14,14 @@ export const THEME_COLORS: { [key in COLORS]: string } = {
   BLUE: "#3F82B2",
 };
 
-export const backgroundColors = (color: COLORS) => {
-  switch (color) {
-    case COLORS.GREEN:
-      return "bg-green";
-    case COLORS.BLUE:
-      return "bg-blue";
-    case COLORS.CYAN:
-      return "bg-cyan";
-    case COLORS.NAVY:
-      return "bg-navy";
-    case COLORS.YELLOW:
-      return "bg-yellow";
-    default:
-      assertNever(color);
-  }
-};
+export const colorClass = (color: COLORS, target: "bg" | "border"): string => {
+  const classes: { [key in COLORS]: string } = {
+    BLUE: "blue",
+    CYAN: "cyan",
+    GREEN: "green",
+    NAVY: "navy",
+    YELLOW: "yellow",
+  };
 
-export const borderColor = (color: COLORS) => {
-  switch (color) {
-    case COLORS.GREEN:
-      return "border-green";
-    case COLORS.BLUE:
-      return "border-blue";
-    case COLORS.CYAN:
-      return "border-cyan";
-    case COLORS.NAVY:
-      return "border-navy";
-    case COLORS.YELLOW:
-      return "border-yellow";
-    default:
-      assertNever(color);
-  }
+  return `${target}-${classes[color]}`;
 };
