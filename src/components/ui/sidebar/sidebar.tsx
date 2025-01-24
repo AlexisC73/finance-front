@@ -32,20 +32,20 @@ export default function Sidebar({
       </div>
       <div className="flex w-full xl:flex-col xl:gap-y-1 flex-1">
         <SidebarItem
-          name="Home"
+          name="Overview"
           href="/"
           active={currentPathname === "/"}
           Icon={HomeIcon}
           sidebarOpen={sidebarOpen}
         />
         <SidebarItem
-          name="Transaction"
+          name="Transactions"
           active={currentPathname === "/transactions"}
           Icon={TransactionIcon}
           sidebarOpen={sidebarOpen}
         />
         <SidebarItem
-          name="Budget"
+          name="Budgets"
           href="/budgets"
           active={currentPathname === "/budgets"}
           Icon={BudgetIcon}
