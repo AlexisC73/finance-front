@@ -20,8 +20,8 @@ export default function BudgetTransaction({
         />
         <p className="text-preset-5-bold">{to}</p>
       </div>
-      <div className="flex flex-col gap-y-1">
-        <p className="text-preset-5-bold">${Number(amount).toFixed(2)}</p>
+      <div className="flex flex-col gap-y-1 items-end">
+        <p className="text-preset-5-bold">-${Number(amount).toFixed(2)}</p>
         <p className="text-preset-5 text-grey-500">{date}</p>
       </div>
     </li>
