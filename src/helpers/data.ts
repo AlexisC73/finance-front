@@ -49,7 +49,7 @@ export const BUDGETS_TRANSACTIONS: {
     name: "Enterntainment",
     maxSpent: "50",
     color: COLORS.GREEN,
-    spent: "25",
+    spent: "15",
     transactions: [
       {
         id: "1",
@@ -61,15 +61,37 @@ export const BUDGETS_TRANSACTIONS: {
       {
         id: "2",
         to: "Pixel Playground",
-        amount: "10",
+        amount: "5",
         date: "11 Aug 2024",
         imageUrl: "https://placehold.co/500",
       },
       {
         id: "3",
         to: "Rina Sato",
-        amount: "10",
+        amount: "5",
         date: "13 Jul 2024",
+        imageUrl: "https://placehold.co/500",
+      },
+    ],
+  },
+  {
+    color: COLORS.TURQUOISE,
+    name: "Bills",
+    maxSpent: "750",
+    spent: "150",
+    transactions: [
+      {
+        id: "1",
+        to: "James Thompson",
+        amount: "50",
+        date: "11 Aug 2024",
+        imageUrl: "https://placehold.co/500",
+      },
+      {
+        id: "2",
+        to: "Pixel Playground",
+        amount: "100",
+        date: "11 Aug 2024",
         imageUrl: "https://placehold.co/500",
       },
     ],

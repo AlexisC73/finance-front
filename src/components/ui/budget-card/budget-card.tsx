@@ -2,11 +2,13 @@ import { ArrowIcon, DotsMenuIcon } from "@/assets/icons/icons";
 import { Link } from "react-router-dom";
 import BudgetTransaction from "./budget-transaction/budget-transaction";
 import React from "react";
+import { colorClass, COLORS } from "@/theme/colors";
 
 interface BudgetCardProps {
   name: string;
   maxAmount: string;
   spentAmount: string;
+  color: COLORS;
   transactions: {
     id: string;
     to: string;
@@ -21,11 +23,17 @@ export default function BudgetCard({
   maxAmount,
   spentAmount,
   transactions,
+  color,
 }: BudgetCardProps) {
+  const backgroundColor = colorClass(color, "bg");
+
   return (
     <li className="bg-white rounded-3 py-6 px-5 flex flex-col gap-y-5 md:p-8">
       <div id="budget-header" className="flex items-center gap-x-4">
-        <div id="circle" className="w-4 h-4 bg-green rounded-full"></div>
+        <div
+          id="circle"
+          className={`w-4 h-4 rounded-full ${backgroundColor}`}
+        ></div>
         <h3 className="flex-1 font-bold line-height-120% text-5">{name}</h3>
         <button id="context-menu">
           <DotsMenuIcon />
@@ -38,7 +46,7 @@ export default function BudgetCard({
         <div id="slider" className="h-8 w-full bg-beige-100 rounded-1 p-1">
           <div
             id="slider-percentage"
-            className="h-6 rounded-1 bg-green max-w-100%"
+            className={`h-6 rounded-1 max-w-100% ${backgroundColor}`}
             style={{
               width: (Number(spentAmount) / Number(maxAmount)) * 100 + "%",
             }}
@@ -46,7 +54,9 @@ export default function BudgetCard({
         </div>
         <div id="budget-spent-free" className="flex">
           <div id="spent" className="flex flex-1 gap-x-4">
-            <div className="bg-green flex-1 max-w-1 rounded-2"></div>
+            <div
+              className={`flex-1 max-w-1 rounded-2 ${backgroundColor}`}
+            ></div>
             <div className="flex flex-col gap-y-1">
               <p className="text-3 line-height-150% text-grey-500">Spent</p>
               <p className="text-3.5 line-height-150% font-bold">
