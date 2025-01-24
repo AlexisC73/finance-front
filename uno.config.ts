@@ -7,6 +7,16 @@ const borderSafelist: { [key in COLORS]: string } = {
   GREEN: "border-green",
   NAVY: "border-navy",
   YELLOW: "border-yellow",
+  ARMY_GREEN: "border-army-green",
+  BROWN: "border-brown",
+  GOLD: "border-gold",
+  MAGENTA: "border-magenta",
+  NAVY_GREY: "border-navy-grey",
+  ORANGE: "border-orange",
+  PINK: "border-pink",
+  PURPLE: "border-purple",
+  RED: "border-red",
+  TURQUOISE: "border-turquoise",
 };
 
 const backgroundSafelist: { [key in COLORS]: string } = {
@@ -15,6 +25,16 @@ const backgroundSafelist: { [key in COLORS]: string } = {
   GREEN: "bg-green",
   NAVY: "bg-navy",
   YELLOW: "bg-yellow",
+  ARMY_GREEN: "bg-army-green",
+  BROWN: "bg-brown",
+  GOLD: "bg-gold",
+  MAGENTA: "bg-magenta",
+  NAVY_GREY: "bg-navy-grey",
+  ORANGE: "bg-orange",
+  PINK: "bg-pink",
+  PURPLE: "bg-purple",
+  RED: "bg-red",
+  TURQUOISE: "bg-turquoise",
 };
 
 const safelist = [
@@ -48,6 +68,7 @@ export default defineConfig({
       },
       navy: {
         DEFAULT: "#626070",
+        grey: "#97A0AC",
       },
       red: {
         DEFAULT: "#C94736",
@@ -66,9 +87,6 @@ export default defineConfig({
       },
       blue: {
         DEFAULT: "#3F82B2",
-      },
-      "navy-grey": {
-        DEFAULT: "#97A0AC",
       },
       "army-green": {
         DEFAULT: "#7F9161",
