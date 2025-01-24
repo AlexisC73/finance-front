@@ -5,7 +5,12 @@ export default function BudgetsPage() {
   return (
     <div className="flex flex-col gap-y-8 pb-14">
       <SectionTitle>Budgets</SectionTitle>
-      <SpendingSummaryWidget />
+      <div className="xl:flex xl:gap-x-6">
+        <div className="xl:w-107">
+          <SpendingSummaryWidget />
+        </div>
+        <div></div>
+      </div>
     </div>
   );
 }
