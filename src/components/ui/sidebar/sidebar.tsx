@@ -40,6 +40,7 @@ export default function Sidebar({
         />
         <SidebarItem
           name="Transactions"
+          href="/transactions"
           active={currentPathname === "/transactions"}
           Icon={TransactionIcon}
           sidebarOpen={sidebarOpen}
@@ -60,6 +61,7 @@ export default function Sidebar({
         />
         <SidebarItem
           name="Recurring bills"
+          href="/recurring-bills"
           active={currentPathname === "/recurring-bills"}
           Icon={BillsIcon}
           sidebarOpen={sidebarOpen}

@@ -6,6 +6,8 @@ import SignupPage from "./pages/auth/signup/signup-page";
 import SidebarLayout from "./layout/sidebar-layout";
 import BudgetsPage from "./pages/Budgets";
 import PotsPage from "./pages/Pots";
+import RecurringBillsPage from "./pages/Recurring-bills";
+import TransactionsPage from "./pages/Transactions";
 
 export const createRouter = () =>
   createBrowserRouter([
@@ -30,6 +32,8 @@ export const createRouter = () =>
         { path: "/", Component: () => <HomePage /> },
         { path: "/budgets", Component: () => <BudgetsPage /> },
         { path: "/pots", Component: () => <PotsPage /> },
+        { path: "/recurring-bills", Component: () => <RecurringBillsPage /> },
+        { path: "/transactions", Component: () => <TransactionsPage /> },
       ],
     },
   ]);
