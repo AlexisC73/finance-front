@@ -1,4 +1,4 @@
-import { COLORS } from "@/theme/colors";
+import { backgroundColors, COLORS } from "@/theme/colors";
 
 export default function BudgetsItem({
   title,
@@ -9,14 +9,8 @@ export default function BudgetsItem({
   amount: string;
   color: COLORS;
 }) {
-  const borderColor =
-    color === COLORS.GREEN
-      ? "bg-green"
-      : color === COLORS.CYAN
-        ? "bg-cyan"
-        : color === COLORS.YELLOW
-          ? "bg-yellow"
-          : "bg-navy";
+  const borderColor = backgroundColors(color);
+
   return (
     <div className="flex w-full gap-x-4">
       <div className={`flex-1 w-1 max-w-1 rounded-full ${borderColor}`}></div>

@@ -1,4 +1,4 @@
-import { COLORS } from "@/theme/colors";
+import { backgroundColors, COLORS } from "@/theme/colors";
 
 export default function PotsDetailItem({
   color = COLORS.NAVY,
@@ -9,14 +9,8 @@ export default function PotsDetailItem({
   title: string;
   amount: string;
 }) {
-  const borderColor =
-    color === COLORS.GREEN
-      ? "bg-green"
-      : color === COLORS.CYAN
-        ? "bg-cyan"
-        : color === COLORS.YELLOW
-          ? "bg-yellow"
-          : "bg-navy";
+  const borderColor = backgroundColors(color);
+
   return (
     <div className="flex w-full gap-x-4">
       <div className={`w-1 h-full rounded-full ${borderColor}`}></div>
