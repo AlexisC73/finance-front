@@ -31,3 +31,47 @@ export const BUDGETS: {
     color: COLORS.NAVY,
   },
 ];
+
+export const BUDGETS_TRANSACTIONS: {
+  name: string;
+  maxSpent: string;
+  spent: string;
+  color: COLORS;
+  transactions: {
+    id: string;
+    to: string;
+    amount: string;
+    date: string;
+    imageUrl: string;
+  }[];
+}[] = [
+  {
+    name: "Enterntainment",
+    maxSpent: "50",
+    color: COLORS.GREEN,
+    spent: "25",
+    transactions: [
+      {
+        id: "1",
+        to: "James Thompson",
+        amount: "5",
+        date: "11 Aug 2024",
+        imageUrl: "https://placehold.co/500",
+      },
+      {
+        id: "2",
+        to: "Pixel Playground",
+        amount: "10",
+        date: "11 Aug 2024",
+        imageUrl: "https://placehold.co/500",
+      },
+      {
+        id: "3",
+        to: "Rina Sato",
+        amount: "10",
+        date: "13 Jul 2024",
+        imageUrl: "https://placehold.co/500",
+      },
+    ],
+  },
+];

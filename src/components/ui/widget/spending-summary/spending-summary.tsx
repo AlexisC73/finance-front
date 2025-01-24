@@ -9,7 +9,7 @@ export default function SpendingSummaryWidget() {
       <div className="flex md:flex-1 min-w-60 justify-center items-center">
         <BudgetCircle budgets={BUDGETS} />
       </div>
-      <div className="w-full md:w-74 xl:w-full flex flex-col gap-y-6">
+      <div className="w-full md:flex-1 xl:w-full flex flex-col gap-y-6">
         <h3 className="text-5 line-height-120% font-bold">Spending Summary</h3>
         <ul className="flex flex-col gap-y-4">
           {BUDGETS.map((budget, index) => (
