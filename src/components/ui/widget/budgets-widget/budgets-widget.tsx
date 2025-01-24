@@ -1,39 +1,7 @@
 import { WidgetHeader } from "../widget-header/widget-header";
 import BudgetsItem from "./budgets-item/budgets-item";
 import BudgetCircle from "../budget-circle/budget-circle";
-import { COLORS } from "@/theme/colors";
-
-const BUDGETS: {
-  name: string;
-  goal: string;
-  current: string;
-  color: COLORS;
-}[] = [
-  {
-    name: "Entertainment",
-    goal: "50",
-    current: "10",
-    color: COLORS.GREEN,
-  },
-  {
-    name: "Bills",
-    goal: "750",
-    current: "208",
-    color: COLORS.CYAN,
-  },
-  {
-    name: "Dining Out",
-    goal: "75",
-    current: "70",
-    color: COLORS.YELLOW,
-  },
-  {
-    name: "Personal Care",
-    goal: "100",
-    current: "50",
-    color: COLORS.NAVY,
-  },
-];
+import { BUDGETS } from "@/helpers/data";
 
 export default function BudgetsWidget() {
   return (
