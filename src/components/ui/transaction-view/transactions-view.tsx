@@ -79,16 +79,18 @@ export default function TransactionsView({
         <NextPreviousPageButton
           action={() => handlePrevOrNext("prev")}
           type="previous"
+          disabled={currentPage === 1}
         />
         <PageSelector
           currentPage={currentPage}
           lastPageNumber={maxPage}
-          maxSidePage={3}
+          maxSidePage={2}
           updatePage={(page: number) => setCurrentPage(page)}
         />
         <NextPreviousPageButton
           action={() => handlePrevOrNext("next")}
           type="next"
+          disabled={currentPage === maxPage}
         />
       </div>
     </div>

@@ -46,6 +46,7 @@ export default function PageSelector({
   currentPage,
   lastPageNumber,
   maxSidePage,
+  updatePage,
 }: {
   currentPage: number;
   lastPageNumber: number;
@@ -60,17 +61,32 @@ export default function PageSelector({
 
   return (
     <div className="flex gap-x-4">
-      <PageButton page={1} currentPage={currentPage} />
-      <LeftPageRest currentPage={currentPage} pageToDisplay={pageCount.left} />
+      <PageButton action={updatePage} page={1} currentPage={currentPage} />
+      <LeftPageRest
+        updatePage={updatePage}
+        currentPage={currentPage}
+        lastPageNumber={lastPageNumber}
+        pageToDisplay={pageCount.left}
+      />
       {currentPage > 1 && currentPage < lastPageNumber && (
-        <PageButton page={currentPage} currentPage={currentPage} />
+        <PageButton
+          action={updatePage}
+          page={currentPage}
+          currentPage={currentPage}
+        />
       )}
       <RightPageRest
+        updatePage={updatePage}
         currentPage={currentPage}
         maxPage={lastPageNumber}
+        lastPageNumber={lastPageNumber}
         pageToDisplay={pageCount.right}
       />
-      <PageButton page={lastPageNumber} currentPage={currentPage} />
+      <PageButton
+        action={updatePage}
+        page={lastPageNumber}
+        currentPage={currentPage}
+      />
     </div>
   );
 }
@@ -78,9 +94,13 @@ export default function PageSelector({
 function LeftPageRest({
   currentPage,
   pageToDisplay,
+  updatePage,
+  lastPageNumber,
 }: {
   currentPage: number;
   pageToDisplay: number;
+  updatePage: (page: number) => void;
+  lastPageNumber: number;
 }) {
   const shouldDisplayDots = currentPage - 2 > pageToDisplay;
   return (
@@ -88,6 +108,7 @@ function LeftPageRest({
       {Array.from({ length: pageToDisplay }).map((_, index) =>
         index !== 0 ? (
           <PageButton
+            action={updatePage}
             key={index}
             currentPage={currentPage}
             page={currentPage - pageToDisplay + index}
@@ -95,7 +116,10 @@ function LeftPageRest({
         ) : (
           <PageButton
             key={index}
+            action={updatePage}
             currentPage={currentPage}
+            lastPageNumber={lastPageNumber}
+            side="prev"
             page={
               shouldDisplayDots ? "..." : currentPage - pageToDisplay + index
             }
@@ -110,10 +134,14 @@ function RightPageRest({
   currentPage,
   pageToDisplay,
   maxPage,
+  updatePage,
+  lastPageNumber,
 }: {
   currentPage: number;
   pageToDisplay: number;
   maxPage: number;
+  updatePage: (page: number) => void;
+  lastPageNumber: number;
 }) {
   const shouldDisplayDots = currentPage + pageToDisplay < maxPage - 1;
   return (
@@ -121,13 +149,17 @@ function RightPageRest({
       {Array.from({ length: pageToDisplay }).map((_, index) =>
         index + 1 !== pageToDisplay ? (
           <PageButton
+            action={updatePage}
             key={index}
             page={currentPage + index + 1}
             currentPage={currentPage}
           />
         ) : (
           <PageButton
+            action={updatePage}
             key={index}
+            lastPageNumber={lastPageNumber}
+            side="next"
             page={shouldDisplayDots ? "..." : currentPage + index + 1}
             currentPage={currentPage}
           />
