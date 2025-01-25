@@ -5,7 +5,7 @@ export default function TransactionsPage() {
   return (
     <div className="flex flex-col gap-y-8 pb-14">
       <SectionTitle>Transactions</SectionTitle>
-      <TransactionsView maxDisplayedTransaction={2} />
+      <TransactionsView maxDisplayedTransaction={7} />
     </div>
   );
 }

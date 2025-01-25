@@ -4,6 +4,7 @@ import PageSelector from "./page-selector/page-selector";
 import TransactionItem from "./transaction-item/transaction-item";
 import { TRANSACTIONS } from "@/helpers/data";
 import { useSearchParams } from "react-router-dom";
+import NextPreviousPageButton from "./page-selector/next-previous-page-button/prev-next-page-button";
 
 export default function TransactionsView({
   maxDisplayedTransaction = 12,
@@ -16,6 +17,15 @@ export default function TransactionsView({
   const page = pageNumber > maxPage ? maxPage : pageNumber < 1 ? 1 : pageNumber;
 
   const [currentPage, setCurrentPage] = useState(page);
+
+  const updatePage = (page: number) => {
+    if (page < 1 || page > maxPage) return;
+    setCurrentPage(page);
+  };
+
+  const handlePrevOrNext = (type: "next" | "prev") => {
+    updatePage(type === "next" ? currentPage + 1 : currentPage - 1);
+  };
 
   const displayedTransaction = TRANSACTIONS.slice(
     maxDisplayedTransaction * (currentPage - 1),
@@ -62,11 +72,25 @@ export default function TransactionsView({
           </React.Fragment>
         ))}
       </ul>
-      <PageSelector
-        currentPage={currentPage}
-        maxPage={maxPage}
-        updatePage={(page: number) => setCurrentPage(page)}
-      />
+      <div
+        id="page-list"
+        className="flex gap-x-2 pt-6 md:justify-between mx-auto md:mx-none"
+      >
+        <NextPreviousPageButton
+          action={() => handlePrevOrNext("prev")}
+          type="previous"
+        />
+        <PageSelector
+          currentPage={currentPage}
+          lastPageNumber={maxPage}
+          maxSidePage={3}
+          updatePage={(page: number) => setCurrentPage(page)}
+        />
+        <NextPreviousPageButton
+          action={() => handlePrevOrNext("next")}
+          type="next"
+        />
+      </div>
     </div>
   );
 }
