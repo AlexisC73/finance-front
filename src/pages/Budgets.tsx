@@ -11,11 +11,11 @@ export default function BudgetsPage() {
         <SectionTitle>Budgets</SectionTitle>
         <Button>+ Add New Budget</Button>
       </div>
-      <div className="flex flex-col xl:flex xl:flex-row xl:gap-x-6 gap-y-6">
-        <div className="xl:w-107">
+      <div className="flex flex-col xl:grid xl:cols-3 xl:gap-x-6 gap-y-6">
+        <div className="xl:col-span-1">
           <SpendingSummaryWidget />
         </div>
-        <ul className="flex-1 flex flex-col gap-y-6">
+        <ul className="flex-1 flex flex-col gap-y-6 xl:col-span-2">
           {BUDGETS_TRANSACTIONS.map((budget) => (
             <BudgetCard
               color={budget.color}
