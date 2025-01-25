@@ -57,8 +57,8 @@ export default defineConfig({
   theme: {
     colors: {
       beige: {
-        100: "#f5f5dc",
-        500: "#f8f4f0",
+        100: "#F8F4F0",
+        500: "#98908B",
       },
       grey: {
         900: "#201F24",
