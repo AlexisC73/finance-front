@@ -141,3 +141,23 @@ export const POTS: {
     goal: "1440",
   },
 ];
+
+export const TRANSACTIONS: {
+  id: number;
+  date: string;
+  category: string;
+  sender: string;
+  imageUrl: string;
+  amount: string;
+  gain: boolean;
+}[] = [
+  ...Array.from({ length: 100 }, (_, i) => ({
+    id: i + 1,
+    date: "29 Aug 2024",
+    category: "Personal Care",
+    sender: "Bravo Zen Spa",
+    imageUrl: "https://placehold.co/500",
+    amount: (Math.random() * 100).toFixed(2),
+    gain: Math.random() > 0.5,
+  })),
+];
