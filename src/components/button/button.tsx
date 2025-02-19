@@ -7,10 +7,12 @@ export default function Button({
   type = "primary",
   action,
   fullWidth = false,
+  customClasses = "",
 }: PropsWithChildren & {
   fullWidth?: boolean;
   type?: Type;
   action?: () => void;
+  customClasses?: string;
 }) {
   const buttonStyles: { [key in Type]: string } = {
     destroy:
@@ -24,7 +26,9 @@ export default function Button({
   return (
     <button
       onClick={action}
-      className={buttonStyles[type] + (fullWidth ? " w-full" : "")}
+      className={
+        buttonStyles[type] + (fullWidth ? " w-full" : "") + " " + customClasses
+      }
     >
       {children}
     </button>

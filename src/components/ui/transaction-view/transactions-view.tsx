@@ -55,6 +55,16 @@ export default function TransactionsView({
         </div>
       </div>
       <ul className="flex flex-col gap-y-4">
+        <li className="hidden md:grid md:cols-3 gap-x-8 text-preset-5 text-grey-500 md:py-5.25 xl:py-3 xl:px-4 border-b border-b-grey-100">
+          <div className="md:col-span-2 flex justify-between">
+            <p>Recipient / Sender</p>
+            <p className="md:w-20 xl:w-30">Category</p>
+          </div>
+          <div className="flex justify-between">
+            <p className="md:w-20 xl:w-30">Transaction Date</p>
+            <p>Amount</p>
+          </div>
+        </li>
         {displayedTransaction.map((tx, index) => (
           <React.Fragment key={tx.id}>
             <TransactionItem
@@ -84,7 +94,7 @@ export default function TransactionsView({
         <PageSelector
           currentPage={currentPage}
           lastPageNumber={maxPage}
-          maxSidePage={2}
+          totalPage={2}
           updatePage={(page: number) => setCurrentPage(page)}
         />
         <NextPreviousPageButton

@@ -2,41 +2,41 @@ import PageButton from "./page-button/page-button";
 
 const calculateEachSidePage = ({
   currentPage,
-  maxSidePage,
+  maxPages,
   lastPageNumber,
 }: {
   currentPage: number;
-  maxSidePage: number;
+  maxPages: number;
   lastPageNumber: number;
 }): { left: number; right: number } => {
   const leftAvailable = currentPage - 2;
   const rightAvailable = lastPageNumber - currentPage - 1;
 
+  const maxLeft = Math.floor(maxPages / 2);
+  const maxRight = Math.ceil(maxPages / 2);
+
   const result = { left: 0, right: 0 };
 
-  if (leftAvailable < maxSidePage && rightAvailable < maxSidePage) {
+  if (leftAvailable < maxLeft / 2 && rightAvailable < maxRight / 2) {
     return { left: leftAvailable, right: rightAvailable };
   }
 
-  if (leftAvailable < maxSidePage && rightAvailable >= maxSidePage) {
+  if (leftAvailable < maxLeft && rightAvailable >= maxRight) {
     result.left = leftAvailable;
     result.right = Math.min(
-      maxSidePage + (maxSidePage - leftAvailable),
+      maxRight + (maxRight - leftAvailable),
       rightAvailable,
     );
   }
 
-  if (leftAvailable >= maxSidePage && rightAvailable < maxSidePage) {
-    result.left = Math.min(
-      maxSidePage + (maxSidePage - rightAvailable),
-      leftAvailable,
-    );
+  if (leftAvailable >= maxLeft && rightAvailable < maxRight) {
+    result.left = Math.min(maxLeft + (maxLeft - rightAvailable), leftAvailable);
     result.right = rightAvailable;
   }
 
-  if (leftAvailable >= maxSidePage && rightAvailable >= maxSidePage) {
-    result.left = maxSidePage;
-    result.right = maxSidePage;
+  if (leftAvailable >= maxLeft && rightAvailable >= maxRight) {
+    result.left = maxLeft;
+    result.right = maxRight;
   }
 
   return result;
@@ -45,16 +45,16 @@ const calculateEachSidePage = ({
 export default function PageSelector({
   currentPage,
   lastPageNumber,
-  maxSidePage,
+  totalPage,
   updatePage,
 }: {
   currentPage: number;
   lastPageNumber: number;
   updatePage: (page: number) => void;
-  maxSidePage: number;
+  totalPage: number;
 }) {
   const pageCount = calculateEachSidePage({
-    maxSidePage: maxSidePage - 1,
+    maxPages: totalPage - 1,
     currentPage,
     lastPageNumber: lastPageNumber,
   });
