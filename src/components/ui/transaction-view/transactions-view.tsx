@@ -1,30 +1,10 @@
 import React, { useState } from "react";
-import { FilterIcon, SearchIcon, SortIcon } from "@/assets/icons/icons";
 import PageSelector from "./page-selector/page-selector";
 import TransactionItem from "./transaction-item/transaction-item";
 import { TRANSACTIONS } from "@/helpers/data";
 import { useSearchParams } from "react-router-dom";
 import NextPreviousPageButton from "./page-selector/next-previous-page-button/prev-next-page-button";
-import DropdownMenu from "@/components/dropdown-menu/dropdown-menu";
-
-const sortOptions = [
-  "Latest",
-  "Oldest",
-  "A to Z",
-  "Z to A",
-  "Highest",
-  "Lowest",
-];
-
-const transactionCategories = [
-  "All Transactions",
-  "Entertainment",
-  "Bills",
-  "Groceries",
-  "Dining Out",
-  "Transportation",
-  "Personal Care",
-];
+import TransactionHeader from "./transaction-header/transaction-header";
 
 export default function TransactionsView({
   maxDisplayedTransaction = 12,
@@ -37,10 +17,6 @@ export default function TransactionsView({
   const page = pageNumber > maxPage ? maxPage : pageNumber < 1 ? 1 : pageNumber;
 
   const [currentPage, setCurrentPage] = useState(page);
-  const [currentSort, setCurrentSort] = useState(sortOptions[0]);
-  const [currentCaterogy, setCurrentCategory] = useState(
-    transactionCategories[0],
-  );
 
   const updatePage = (page: number) => {
     if (page < 1 || page > maxPage) return;
@@ -56,56 +32,9 @@ export default function TransactionsView({
     maxDisplayedTransaction * currentPage,
   );
 
-  const updateCurrentSort = (sort: string) => {
-    if (sortOptions.includes(sort)) {
-      setCurrentSort(sort);
-    }
-  };
-
-  const updateCurrentCategory = (category: string) => {
-    if (transactionCategories.includes(category)) {
-      setCurrentCategory(category);
-    }
-  };
-
   return (
     <div className="flex flex-col gap-6 w-full bg-white py-6 px-5 rounded-3">
-      <div
-        id="search-filters"
-        className="flex items-center justify-between gap-x-6"
-      >
-        <div className="flex flex-1 px-5 gap-x-4 border border-beige-500 hover:border-grey-500 active:border-beige-500 rounded-2 max-w-80">
-          <input
-            type="text"
-            id="search"
-            placeholder="Search transaction"
-            className="w-full py-3 outline-none placeholder-grey-500 text-preset-4"
-          />
-          <button className="text-5">
-            <SearchIcon />
-          </button>
-        </div>
-        <div className="flex gap-x-6 text-5">
-          <SortIcon className="md:hidden" />
-          <FilterIcon className="md:hidden" />
-          <div id="sort-menu" className="hidden md:block w-42.25">
-            <DropdownMenu
-              options={sortOptions}
-              currentOption={currentSort}
-              label="Sort by"
-              updateOption={updateCurrentSort}
-            />
-          </div>
-          <div id="category-menu" className="hidden md:block w-61.25">
-            <DropdownMenu
-              options={transactionCategories}
-              currentOption={currentCaterogy}
-              label="Category"
-              updateOption={updateCurrentCategory}
-            />
-          </div>
-        </div>
-      </div>
+      <TransactionHeader />
       <ul className="flex flex-col gap-y-4">
         <li className="hidden md:grid md:cols-3 gap-x-8 text-preset-5 text-grey-500 md:py-5.25 xl:py-3 xl:px-4 border-b border-b-grey-100">
           <div className="md:col-span-2 flex justify-between">
@@ -146,7 +75,7 @@ export default function TransactionsView({
         <PageSelector
           currentPage={currentPage}
           lastPageNumber={maxPage}
-          totalPage={2}
+          totalPage={1}
           updatePage={(page: number) => setCurrentPage(page)}
         />
         <NextPreviousPageButton
