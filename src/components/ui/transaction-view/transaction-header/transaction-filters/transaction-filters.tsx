@@ -1,17 +1,10 @@
-import { FilterIcon, SortIcon } from "@/assets/icons/icons";
+import { FilterIcon } from "@/assets/icons/icons";
 import DropdownButton from "@/components/dropdown/dropdown-button/dropdown-button";
 import DropdownMenu from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import SortDropdown from "@/components/ui/sort-dropdown/sort-dropdown";
+import { SORT_OPTIONS } from "@/helpers/data";
 import useOutsideClick from "@/hooks/use-outside-click";
 import { useState } from "react";
-
-const sortOptions = [
-  "Latest",
-  "Oldest",
-  "A to Z",
-  "Z to A",
-  "Highest",
-  "Lowest",
-];
 
 const transactionCategories = [
   "All Transactions",
@@ -24,29 +17,17 @@ const transactionCategories = [
 ];
 
 export default function TransactionFilters() {
-  const [showSortMenu, setShowSortMenu] = useState(false);
   const [showCategoryMenu, setShowCategoryMenu] = useState(false);
-  const [currentSort, setCurrentSort] = useState(sortOptions[0]);
+  const [currentSort, setCurrentSort] = useState(SORT_OPTIONS[0]);
+  const categoryRef = useOutsideClick({
+    callback: () => setShowCategoryMenu(false),
+  });
   const [currentCaterogy, setCurrentCategory] = useState(
     transactionCategories[0],
   );
 
-  const sortRef = useOutsideClick({ callback: () => setShowSortMenu(false) });
-  const categoryRef = useOutsideClick({
-    callback: () => setShowCategoryMenu(false),
-  });
-
-  const handleToggleSortMenu = () => {
-    setShowSortMenu((prev) => !prev);
-  };
-
   const handleToggleCategoryMenu = () => {
     setShowCategoryMenu((prev) => !prev);
-  };
-
-  const updateSort = (option: string) => {
-    setCurrentSort(option);
-    setShowSortMenu(false);
   };
 
   const updateCategory = (option: string) => {
@@ -56,29 +37,11 @@ export default function TransactionFilters() {
 
   return (
     <div className="flex gap-x-6 text-5">
-      <div id="sort-menu" className="flex gap-x-2 items-center">
-        <p className="text-preset-4 hidden md:block text-grey-500">Sort by</p>
-        <div className="relative w-full md:w-28.25" ref={sortRef}>
-          <div className="hidden md:flex">
-            <DropdownButton action={handleToggleSortMenu}>
-              {currentSort}
-            </DropdownButton>
-          </div>
-          <button className="md:hidden">
-            <SortIcon onClick={handleToggleSortMenu} />
-          </button>
-          <div
-            hidden={!showSortMenu}
-            className="absolute md:left-0 right-0 mt-2"
-          >
-            <DropdownMenu
-              currentOption={currentSort}
-              options={sortOptions}
-              updateOption={updateSort}
-            />
-          </div>
-        </div>
-      </div>
+      <SortDropdown
+        currentSort={currentSort}
+        sortOptions={SORT_OPTIONS}
+        updateSort={(sort) => setCurrentSort(sort)}
+      />
       <div id="category-menu" className="flex gap-x-2 items-center">
         <p className="text-preset-4 hidden md:block text-grey-500">Category</p>
         <div className="relative w-full md:w-44.25" ref={categoryRef}>
