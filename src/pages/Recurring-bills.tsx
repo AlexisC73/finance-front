@@ -1,6 +1,9 @@
 import { BillsIconOutline } from "@/assets/icons/icons";
+import SearchBar from "@/components/form/search-bar/search-bar";
 import SectionTitle from "@/components/ui/section-title/section-title";
-import React from "react";
+import SortDropdown from "@/components/ui/sort-dropdown/sort-dropdown";
+import { SORT_OPTIONS } from "@/helpers/data";
+import React, { useState } from "react";
 
 const BILLS: { title: string; quantity: string; total: string }[] = [
   { title: "Paid Bills", quantity: "2", total: "$320" },
@@ -9,10 +12,15 @@ const BILLS: { title: string; quantity: string; total: string }[] = [
 ];
 
 export default function RecurringBillsPage() {
+  const [currentSort, setCurrentSort] = useState(SORT_OPTIONS[0]);
+
   return (
     <div className="flex flex-col gap-y-8 pb-14">
       <SectionTitle>Recurring Bills</SectionTitle>
-      <div id="bills-content" className="xl:grid xl:cols-3">
+      <div
+        id="bills-content"
+        className="flex flex-col xl:grid xl:cols-3 gap-y-6 xl:gap-x-6 xl:items-start"
+      >
         <div
           id="bills-summary-container"
           className="flex flex-col md:grid md:cols-2 gap-y-6 md:gap-x-6 xl:flex"
@@ -51,7 +59,24 @@ export default function RecurringBillsPage() {
             </ul>
           </div>
         </div>
-        <div id="bills-transactions"></div>
+        <div
+          id="bills-transactions"
+          className="bg-white flex flex-col py-6 px-5 rounded-3 xl:col-span-2"
+        >
+          <div
+            id="recurring-bills-transactions-header"
+            className="flex items-center gap-x-6 justify-between"
+          >
+            <SearchBar />
+            <div id="filter" className="relative">
+              <SortDropdown
+                currentSort={currentSort}
+                sortOptions={SORT_OPTIONS}
+                updateSort={(sort) => setCurrentSort(sort)}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
