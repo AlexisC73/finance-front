@@ -54,20 +54,22 @@ export default function BudgetCard({
           className={`w-4 h-4 rounded-full ${backgroundColor}`}
         ></div>
         <h3 className="flex-1 font-bold line-height-120% text-5">{name}</h3>
-        <Dropdown closeDropdown={closeMenu}>
-          <DropdownButton action={toggleMenu}>
-            <DotsMenuIcon className="text-grey-300" />
-          </DropdownButton>
-          <DropdownMenu isOpen={dropdownOpen}>
-            <DropdownMenuItem>
-              <button>Edit Budget</button>
-            </DropdownMenuItem>
-            <li className="h-px w-full bg-grey-100" />
-            <DropdownMenuItem isRed>
-              <button onClick={handleShowDeleteModal}>Delete Budget</button>
-            </DropdownMenuItem>
-          </DropdownMenu>
-        </Dropdown>
+        <div id="budget-card-dropdown">
+          <Dropdown closeDropdown={closeMenu}>
+            <DropdownButton action={toggleMenu}>
+              <DotsMenuIcon className="text-grey-300" />
+            </DropdownButton>
+            <DropdownMenu isOpen={dropdownOpen}>
+              <DropdownMenuItem>
+                <button>Edit Budget</button>
+              </DropdownMenuItem>
+              <li className="h-px w-full bg-grey-100" />
+              <DropdownMenuItem isRed>
+                <button onClick={handleShowDeleteModal}>Delete Budget</button>
+              </DropdownMenuItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
       </div>
       <div id="budget-info" className="flex flex-col gap-y-4">
         <p className="text-3.5 line-height-150% text-grey-500">

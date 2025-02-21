@@ -37,20 +37,22 @@ export default function PotCard({
           className={`w-4 h-4 rounded-full ${backgroundColor}`}
         ></div>
         <p className="flex-1 text-preset-2">{name}</p>
-        <Dropdown closeDropdown={closeMenu}>
-          <DropdownButton action={toggleMenu}>
-            <DotsMenuIcon className="text-grey-300" />
-          </DropdownButton>
-          <DropdownMenu isOpen={dropdownOpen}>
-            <DropdownMenuItem>
-              <button>Edit Pot</button>
-            </DropdownMenuItem>
-            <li className="h-px w-full bg-grey-100" />
-            <DropdownMenuItem isRed>
-              <button>Delete Pot</button>
-            </DropdownMenuItem>
-          </DropdownMenu>
-        </Dropdown>
+        <div id="pots-menu">
+          <Dropdown closeDropdown={closeMenu}>
+            <DropdownButton action={toggleMenu}>
+              <DotsMenuIcon className="text-grey-300" />
+            </DropdownButton>
+            <DropdownMenu isOpen={dropdownOpen}>
+              <DropdownMenuItem>
+                <button>Edit Pot</button>
+              </DropdownMenuItem>
+              <li className="h-px w-full bg-grey-100" />
+              <DropdownMenuItem isRed>
+                <button>Delete Pot</button>
+              </DropdownMenuItem>
+            </DropdownMenu>
+          </Dropdown>
+        </div>
       </div>
       <div id="pot-info" className="flex flex-col gap-y-4">
         <div className="flex justify-between items-center">

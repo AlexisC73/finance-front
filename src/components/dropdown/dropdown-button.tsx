@@ -3,6 +3,11 @@ import { PropsWithChildren } from "react";
 export default function DropdownButton({
   children,
   action,
-}: PropsWithChildren & { action: () => void }) {
-  return <button onClick={action}>{children}</button>;
+  fullWidth = false,
+}: PropsWithChildren & { action: () => void; fullWidth?: boolean }) {
+  return (
+    <button className={fullWidth ? "w-full" : ""} onClick={action}>
+      {children}
+    </button>
+  );
 }

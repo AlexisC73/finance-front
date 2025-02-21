@@ -10,7 +10,7 @@ export default function Dropdown({
 }) {
   const ref = useOutsideClick({ callback: closeDropdown });
   return (
-    <div ref={ref} className="relative">
+    <div ref={ref} className="relative w-full">
       {children}
     </div>
   );
