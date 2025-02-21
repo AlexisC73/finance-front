@@ -170,3 +170,19 @@ export const SORT_OPTIONS = [
   "Highest",
   "Lowest",
 ];
+
+export const RECURRING_TRANSACTIONS: {
+  id: string;
+  to: string;
+  amount: string;
+  date: string;
+  imageUrl: string;
+  error: boolean;
+}[] = Array.from({ length: 20 }, (_, i) => ({
+  id: i.toString(),
+  to: "James Thompson",
+  amount: "$" + (Math.random() * 100).toFixed(2),
+  date: "Monthly-6th",
+  imageUrl: "https://placehold.co/500",
+  error: Math.random() > 0.5,
+}));
