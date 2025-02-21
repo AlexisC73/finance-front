@@ -8,7 +8,7 @@ import DropdownButton from "@/components/dropdown/dropdown-button";
 import DropdownMenu, {
   DropdownMenuItem,
 } from "@/components/dropdown/dropdown-menu/dropdown-menu";
-import useDropdown from "@/hooks/useDropdown";
+import useMenu from "@/hooks/use-menu";
 
 interface BudgetCardProps {
   name: string;
@@ -32,7 +32,7 @@ export default function BudgetCard({
   color,
 }: BudgetCardProps) {
   const backgroundColor = colorClass(color, "bg");
-  const { closeDropdown, isOpen: dropdownOpen, toggleDropdown } = useDropdown();
+  const { closeMenu, isOpen: dropdownOpen, toggleMenu } = useMenu();
 
   return (
     <li className="bg-white rounded-3 py-6 px-5 flex flex-col gap-y-5 md:p-8">
@@ -42,8 +42,8 @@ export default function BudgetCard({
           className={`w-4 h-4 rounded-full ${backgroundColor}`}
         ></div>
         <h3 className="flex-1 font-bold line-height-120% text-5">{name}</h3>
-        <Dropdown closeDropdown={closeDropdown}>
-          <DropdownButton action={toggleDropdown}>
+        <Dropdown closeDropdown={closeMenu}>
+          <DropdownButton action={toggleMenu}>
             <DotsMenuIcon className="text-grey-300" />
           </DropdownButton>
           <DropdownMenu isOpen={dropdownOpen}>

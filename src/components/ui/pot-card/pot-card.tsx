@@ -5,7 +5,7 @@ import DropdownButton from "@/components/dropdown/dropdown-button";
 import DropdownMenu, {
   DropdownMenuItem,
 } from "@/components/dropdown/dropdown-menu/dropdown-menu";
-import useDropdown from "@/hooks/useDropdown";
+import useDropdown from "@/hooks/use-menu";
 import { colorClass, COLORS } from "@/theme/colors";
 
 interface PotCardProps {
@@ -24,7 +24,7 @@ export default function PotCard({
   target,
 }: PotCardProps) {
   const backgroundColor = colorClass(color, "bg");
-  const { closeDropdown, isOpen: dropdownOpen, toggleDropdown } = useDropdown();
+  const { closeMenu, isOpen: dropdownOpen, toggleMenu } = useDropdown();
 
   return (
     <div
@@ -37,8 +37,8 @@ export default function PotCard({
           className={`w-4 h-4 rounded-full ${backgroundColor}`}
         ></div>
         <p className="flex-1 text-preset-2">{name}</p>
-        <Dropdown closeDropdown={closeDropdown}>
-          <DropdownButton action={toggleDropdown}>
+        <Dropdown closeDropdown={closeMenu}>
+          <DropdownButton action={toggleMenu}>
             <DotsMenuIcon className="text-grey-300" />
           </DropdownButton>
           <DropdownMenu isOpen={dropdownOpen}>
