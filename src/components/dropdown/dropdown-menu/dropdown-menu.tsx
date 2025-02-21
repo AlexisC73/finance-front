@@ -8,7 +8,7 @@ export default function DropdownMenu({
   return (
     <ul
       hidden={!isOpen}
-      className={`absolute right-0 bg-white px-5 py-3 rounded-2 shadow-xl flex flex-col whitespace-nowrap gap-y-3 ${customClassName}`}
+      className={`absolute right-0 bg-white px-5 py-3 rounded-2 shadow-lg flex flex-col whitespace-nowrap gap-y-3 ${customClassName}`}
     >
       {children}
     </ul>
@@ -27,4 +27,8 @@ export function DropdownMenuItem({
       {children}
     </li>
   );
+}
+
+export function DropdownSeparator() {
+  return <li className="h-px w-full bg-grey-100" />;
 }
