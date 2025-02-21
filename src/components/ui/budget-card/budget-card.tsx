@@ -1,7 +1,7 @@
 import { ArrowIcon, DotsMenuIcon } from "@/assets/icons/icons";
 import { Link } from "react-router-dom";
 import BudgetTransaction from "./budget-transaction/budget-transaction";
-import React from "react";
+import React, { useContext } from "react";
 import { colorClass, COLORS } from "@/theme/colors";
 import Dropdown from "@/components/dropdown/dropdown";
 import DropdownButton from "@/components/dropdown/dropdown-button";
@@ -9,6 +9,8 @@ import DropdownMenu, {
   DropdownMenuItem,
 } from "@/components/dropdown/dropdown-menu/dropdown-menu";
 import useMenu from "@/hooks/use-menu";
+import { OverlayCtx } from "@/context/overlay/overlay";
+import DeleteBudgetModal from "@/components/modal/budget/delete-budget-modal";
 
 interface BudgetCardProps {
   name: string;
@@ -33,6 +35,16 @@ export default function BudgetCard({
 }: BudgetCardProps) {
   const backgroundColor = colorClass(color, "bg");
   const { closeMenu, isOpen: dropdownOpen, toggleMenu } = useMenu();
+  const { displayOverlay } = useContext(OverlayCtx);
+
+  const handleShowDeleteModal = () => {
+    displayOverlay(
+      <DeleteBudgetModal
+        budgetName={name}
+        onConfirm={() => new Promise((resolve) => setTimeout(resolve, 1000))}
+      />,
+    );
+  };
 
   return (
     <li className="bg-white rounded-3 py-6 px-5 flex flex-col gap-y-5 md:p-8">
@@ -52,7 +64,7 @@ export default function BudgetCard({
             </DropdownMenuItem>
             <li className="h-px w-full bg-grey-100" />
             <DropdownMenuItem isRed>
-              <button>Delete Budget</button>
+              <button onClick={handleShowDeleteModal}>Delete Budget</button>
             </DropdownMenuItem>
           </DropdownMenu>
         </Dropdown>

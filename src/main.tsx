@@ -6,13 +6,16 @@ import "@unocss/reset/tailwind.css";
 import { RouterProvider } from "react-router-dom";
 import { createRouter } from "./router.tsx";
 import { SidebarProvider } from "./context/sidebar/sidebar-proviter.tsx";
+import { OverlayProvider } from "./context/overlay/overlay-provider.tsx";
 
 const router = createRouter();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <SidebarProvider>
-      <RouterProvider router={router} />
-    </SidebarProvider>
+    <OverlayProvider>
+      <SidebarProvider>
+        <RouterProvider router={router} />
+      </SidebarProvider>
+    </OverlayProvider>
   </StrictMode>,
 );
