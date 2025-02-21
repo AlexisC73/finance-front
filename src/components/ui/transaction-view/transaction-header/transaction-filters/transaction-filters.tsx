@@ -1,6 +1,6 @@
 import { FilterIcon } from "@/assets/icons/icons";
-import DropdownButton from "@/components/dropdown/dropdown-button/dropdown-button";
-import DropdownMenu from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import SelectButton from "@/components/select/select-button";
+import SelectMenu from "@/components/select/select-menu";
 import SortDropdown from "@/components/ui/sort-dropdown/sort-dropdown";
 import { SORT_OPTIONS } from "@/helpers/data";
 import useOutsideClick from "@/hooks/use-outside-click";
@@ -46,9 +46,9 @@ export default function TransactionFilters() {
         <p className="text-preset-4 hidden md:block text-grey-500">Category</p>
         <div className="relative w-full md:w-44.25" ref={categoryRef}>
           <div className="hidden md:flex">
-            <DropdownButton action={handleToggleCategoryMenu}>
+            <SelectButton action={handleToggleCategoryMenu}>
               {currentCaterogy}
-            </DropdownButton>
+            </SelectButton>
           </div>
           <button className="md:hidden">
             <FilterIcon onClick={handleToggleCategoryMenu} />
@@ -57,7 +57,7 @@ export default function TransactionFilters() {
             hidden={!showCategoryMenu}
             className="absolute md:left-0 right-0 mt-2"
           >
-            <DropdownMenu
+            <SelectMenu
               currentOption={currentCaterogy}
               options={transactionCategories}
               updateOption={updateCategory}

@@ -1,4 +1,4 @@
-export default function DropdownItem({
+export default function SelectItem({
   children,
   active = false,
   updateFilter,
@@ -8,7 +8,9 @@ export default function DropdownItem({
   updateFilter: () => void;
 }) {
   return (
-    <li className={active ? "text-preset-4-bold" : "text-preset-4"}>
+    <li
+      className={`whitespace-nowrap ${active ? "text-preset-4-bold" : "text-preset-4"}`}
+    >
       <button onClick={updateFilter} className="w-full text-left">
         {children}
       </button>

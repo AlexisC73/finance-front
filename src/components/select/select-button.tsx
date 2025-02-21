@@ -1,7 +1,7 @@
 import { ArrowIcon } from "@/assets/icons/icons";
 import { ReactNode } from "react";
 
-export default function DropdownButton({
+export default function SelectButton({
   children,
   action,
 }: {

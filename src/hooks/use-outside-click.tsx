@@ -5,10 +5,12 @@ export default function useOutsideClick({
 }: {
   callback: () => void;
 }) {
-  const ref = React.useRef<HTMLDivElement | null>(null);
+  const ref = React.useRef(null);
   useLayoutEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
+      if (ref.current === null) return;
+      const element = ref.current as HTMLElement;
+      if (!element.contains(event.target as Node)) {
         callback();
       }
     };

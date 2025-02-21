@@ -1,6 +1,6 @@
 import { SortIcon } from "@/assets/icons/icons";
-import DropdownButton from "@/components/dropdown/dropdown-button/dropdown-button";
-import DropdownMenu from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import SelectButton from "@/components/select/select-button";
+import SelectMenu from "@/components/select/select-menu";
 import useOutsideClick from "@/hooks/use-outside-click";
 import { useState } from "react";
 
@@ -30,15 +30,15 @@ export default function SortDropdown({
       <p className="text-preset-4 hidden md:block text-grey-500">Sort by</p>
       <div className="relative w-full md:w-28.25" ref={sortRef}>
         <div className="hidden md:flex">
-          <DropdownButton action={handleToggleSortMenu}>
+          <SelectButton action={handleToggleSortMenu}>
             {currentSort}
-          </DropdownButton>
+          </SelectButton>
         </div>
         <button className="md:hidden">
           <SortIcon onClick={handleToggleSortMenu} />
         </button>
         <div hidden={!showSortMenu} className="absolute md:left-0 right-0 mt-2">
-          <DropdownMenu
+          <SelectMenu
             currentOption={currentSort}
             options={sortOptions}
             updateOption={handleUpdateSort}

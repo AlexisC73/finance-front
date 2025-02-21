@@ -1,6 +1,12 @@
 import { DotsMenuIcon } from "@/assets/icons/icons";
 import Button from "@/components/button/button";
+import Dropdown from "@/components/dropdown/dropdown";
+import DropdownButton from "@/components/dropdown/dropdown-button";
+import DropdownMenu, {
+  DropdownMenuItem,
+} from "@/components/dropdown/dropdown-menu/dropdown-menu";
 import { colorClass, COLORS } from "@/theme/colors";
+import { useState } from "react";
 
 interface PotCardProps {
   name: string;
@@ -18,6 +24,8 @@ export default function PotCard({
   target,
 }: PotCardProps) {
   const backgroundColor = colorClass(color, "bg");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
   return (
     <div
       id="pot-1"
@@ -29,7 +37,20 @@ export default function PotCard({
           className={`w-4 h-4 rounded-full ${backgroundColor}`}
         ></div>
         <p className="flex-1 text-preset-2">{name}</p>
-        <DotsMenuIcon className="text-grey-300" />
+        <Dropdown closeDropdown={() => setDropdownOpen(false)}>
+          <DropdownButton action={() => setDropdownOpen((prev) => !prev)}>
+            <DotsMenuIcon className="text-grey-300" />
+          </DropdownButton>
+          <DropdownMenu isOpen={dropdownOpen}>
+            <DropdownMenuItem>
+              <button>Edit Budget</button>
+            </DropdownMenuItem>
+            <li className="h-px w-full bg-grey-100" />
+            <DropdownMenuItem isRed>
+              <button>Delete Budget</button>
+            </DropdownMenuItem>
+          </DropdownMenu>
+        </Dropdown>
       </div>
       <div id="pot-info" className="flex flex-col gap-y-4">
         <div className="flex justify-between items-center">

@@ -1,36 +1,26 @@
-import React from "react";
-import DropdownItem from "./dropdown-item";
+import { PropsWithChildren } from "react";
 
 export default function DropdownMenu({
-  options,
-  currentOption,
-  updateOption,
-}: {
-  options: string[];
-  currentOption: string;
-  updateOption: (option: string) => void;
-}) {
-  const updateCurrentFilter = (filter: string) => {
-    if (options.includes(filter)) {
-      updateOption(filter);
-    }
-  };
-
+  children,
+  isOpen,
+}: PropsWithChildren & { isOpen: boolean }) {
   return (
-    <ul className="px-5 py-3 flex flex-col bg-white shadow rounded-2 text-preset-4 text-grey-900 gap-y-3">
-      {options.map((option, index) => (
-        <React.Fragment key={option}>
-          <DropdownItem
-            updateFilter={() => updateCurrentFilter(option)}
-            active={option === currentOption}
-          >
-            {option}
-          </DropdownItem>
-          {index !== options.length - 1 && (
-            <div id="separator" className="h-px bg-grey-100 w-full"></div>
-          )}
-        </React.Fragment>
-      ))}
+    <ul
+      hidden={!isOpen}
+      className="absolute right-0 bg-white px-5 py-3 rounded-2 shadow-xl flex flex-col whitespace-nowrap gap-y-3"
+    >
+      {children}
     </ul>
+  );
+}
+
+export function DropdownMenuItem({
+  children,
+  isRed = false,
+}: PropsWithChildren & { isRed?: boolean }) {
+  return (
+    <li className={`text-preset-4 ${isRed ? "text-red" : "text-grey-900"}`}>
+      {children}
+    </li>
   );
 }
