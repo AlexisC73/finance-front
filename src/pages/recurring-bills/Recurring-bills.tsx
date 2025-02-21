@@ -45,6 +45,11 @@ export default function RecurringBillsPage() {
             id="recurring-transactions-list"
             className="flex flex-col gap-y-5"
           >
+            <li className="hidden md:flex gap-x-8 text-preset-5 text-grey-500 py-3 xl:border-b mb-1">
+              <p className="flex-1">Bill Title</p>
+              <p className="w-30">Due Date</p>
+              <p className="w-25 text-right">Amount</p>
+            </li>
             {RECURRING_TRANSACTIONS.map((tx, index) => (
               <React.Fragment key={tx.id}>
                 <RecurringTransactionItem
@@ -80,8 +85,8 @@ function RecurringTransactionItem({
   date: string;
 }) {
   return (
-    <li className="flex flex-col gap-y-2">
-      <div id="destination" className="flex items-center gap-x-4">
+    <li className="flex flex-col gap-y-2 md:flex-row md:items-center md:justify-between md:gap-x-8">
+      <div id="destination" className="flex items-center gap-x-4 md:flex-1">
         <img
           src={imageUrl}
           className="w-8 h-8 object-cover rounded-full"
@@ -89,14 +94,14 @@ function RecurringTransactionItem({
         />
         <p className="text-preset-4-bold">{to}</p>
       </div>
-      <div id="data" className="flex justify-between">
+      <div id="data" className="flex justify-between md:gap-x-8">
         <p
-          className={`flex gap-x-2 items-center text-preset-5 ${error ? "text-red" : "text-green"} `}
+          className={`flex gap-x-2 items-center text-preset-5 md:w-30 ${error ? "text-red" : "text-green"} `}
         >
           {date} {error ? <ErrorIcon /> : <CheckIcon />}
         </p>
         <p
-          className={`text-preset-4-bold ${error ? "text-red" : "text-grey-900"}`}
+          className={`text-preset-4-bold md:w-25 md:text-right ${error ? "text-red" : "text-grey-900"}`}
         >
           {amount}
         </p>
