@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 import BudgetTransaction from "./budget-transaction/budget-transaction";
 import React from "react";
 import { colorClass, COLORS } from "@/theme/colors";
+import Dropdown from "@/components/dropdown/dropdown";
+import DropdownButton from "@/components/dropdown/dropdown-button";
+import DropdownMenu, {
+  DropdownMenuItem,
+} from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import useDropdown from "@/hooks/useDropdown";
 
 interface BudgetCardProps {
   name: string;
@@ -26,6 +32,7 @@ export default function BudgetCard({
   color,
 }: BudgetCardProps) {
   const backgroundColor = colorClass(color, "bg");
+  const { closeDropdown, isOpen: dropdownOpen, toggleDropdown } = useDropdown();
 
   return (
     <li className="bg-white rounded-3 py-6 px-5 flex flex-col gap-y-5 md:p-8">
@@ -35,9 +42,20 @@ export default function BudgetCard({
           className={`w-4 h-4 rounded-full ${backgroundColor}`}
         ></div>
         <h3 className="flex-1 font-bold line-height-120% text-5">{name}</h3>
-        <button id="context-menu">
-          <DotsMenuIcon />
-        </button>
+        <Dropdown closeDropdown={closeDropdown}>
+          <DropdownButton action={toggleDropdown}>
+            <DotsMenuIcon className="text-grey-300" />
+          </DropdownButton>
+          <DropdownMenu isOpen={dropdownOpen}>
+            <DropdownMenuItem>
+              <button>Edit Budget</button>
+            </DropdownMenuItem>
+            <li className="h-px w-full bg-grey-100" />
+            <DropdownMenuItem isRed>
+              <button>Delete Budget</button>
+            </DropdownMenuItem>
+          </DropdownMenu>
+        </Dropdown>
       </div>
       <div id="budget-info" className="flex flex-col gap-y-4">
         <p className="text-3.5 line-height-150% text-grey-500">
