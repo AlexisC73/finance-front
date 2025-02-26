@@ -19,12 +19,19 @@ export function DropdownMenuItem({
   children,
   isRed = false,
   isBold = false,
-}: PropsWithChildren & { isRed?: boolean; isBold?: boolean }) {
+  action,
+}: PropsWithChildren & {
+  isRed?: boolean;
+  isBold?: boolean;
+  action?: () => void;
+}) {
   return (
     <li
       className={`text-preset-4 ${isRed ? "text-red" : "text-grey-900"} ${isBold ? "font-bold" : ""}`}
     >
-      {children}
+      <button onClick={action} className="w-full text-left">
+        {children}
+      </button>
     </li>
   );
 }
