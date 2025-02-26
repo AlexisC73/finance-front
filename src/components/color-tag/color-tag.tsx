@@ -2,17 +2,17 @@ import { colorClass, COLORS } from "@/theme/colors";
 
 export default function ColorTag({
   color,
-  active = true,
+  disabled = false,
 }: {
   color: COLORS;
-  active?: boolean;
+  disabled?: boolean;
 }) {
   const bgColor = colorClass(color, "bg");
   return (
-    <div className="flex gap-x-3 items-center">
-      <span
-        className={`w-4 h-4 rounded-full ${bgColor} ${active ? "bg-opacity-100" : "bg-opacity-25"}`}
-      ></span>
+    <div
+      className={`flex gap-x-3 items-center ${disabled ? "opacity-25" : "opacity-100"}`}
+    >
+      <span className={`w-4 h-4 rounded-full ${bgColor} `}></span>
       {color[0].toLocaleUpperCase() + color.slice(1).toLowerCase()}
     </div>
   );

@@ -187,12 +187,12 @@ export const RECURRING_TRANSACTIONS: {
   error: Math.random() > 0.5,
 }));
 
-export const COLORS_TAG: { color: COLORS; active: boolean }[] = [
-  { color: COLORS.GREEN, active: true },
-  { color: COLORS.YELLOW, active: true },
-  { color: COLORS.CYAN, active: true },
-  { color: COLORS.NAVY, active: true },
-  { color: COLORS.RED, active: false },
-  { color: COLORS.PURPLE, active: false },
-  { color: COLORS.TURQUOISE, active: false },
+export const COLORS_TAG: { color: COLORS; available: boolean }[] = [
+  { color: COLORS.GREEN, available: false },
+  { color: COLORS.YELLOW, available: false },
+  { color: COLORS.CYAN, available: false },
+  { color: COLORS.NAVY, available: false },
+  { color: COLORS.RED, available: true },
+  { color: COLORS.PURPLE, available: true },
+  { color: COLORS.TURQUOISE, available: true },
 ];

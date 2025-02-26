@@ -14,13 +14,21 @@ import { COLORS_TAG } from "@/helpers/data";
 import { COLORS } from "@/theme/colors";
 import React, { useContext, useState } from "react";
 
-export default function EditBudgetModal() {
-  const { setOpen } = useContext(OverlayCtx);
+export default function EditBudgetModal({
+  originalColor,
+}: {
+  originalColor: COLORS;
+}) {
+  const { closeOverlay } = useContext(OverlayCtx);
 
   const [categoryDropdownOpen, setCategoryDropdownOpen] = useState(false);
+  const [tagColor, setTagColor] = useState(originalColor);
   const [colorTagDropdownOpen, setColorTagDropdownOpen] = useState(false);
 
-  const closeOverlay = () => setOpen(false);
+  const updateTagColor = (color: COLORS) => {
+    setTagColor(color);
+    setColorTagDropdownOpen(false);
+  };
 
   return (
     <div className="bg-white py-6 px-5 rounded-3 flex flex-col gap-y-5 md:p-8 md:max-w-560px">
@@ -53,9 +61,7 @@ export default function EditBudgetModal() {
               customClassName="left-0"
               isOpen={categoryDropdownOpen}
             >
-              <DropdownMenuItem>
-                <button>Hello</button>
-              </DropdownMenuItem>
+              <DropdownMenuItem>Hello</DropdownMenuItem>
             </DropdownMenu>
           </Dropdown>
         </div>
@@ -93,7 +99,7 @@ export default function EditBudgetModal() {
               action={() => setColorTagDropdownOpen((prev) => !prev)}
             >
               <SelectButton>
-                <ColorTag color={COLORS.GREEN} />
+                <ColorTag color={tagColor} />
               </SelectButton>
             </DropdownButton>
             <DropdownMenu
@@ -102,10 +108,17 @@ export default function EditBudgetModal() {
             >
               {COLORS_TAG.map((tag, index) => (
                 <React.Fragment key={tag.color}>
-                  <DropdownMenuItem>
+                  <DropdownMenuItem
+                    disabled={
+                      tag.color === originalColor ? false : !tag.available
+                    }
+                    action={() => updateTagColor(tag.color)}
+                  >
                     <DropdownTagOption
                       color={tag.color}
-                      alreadyUse={tag.active}
+                      disabled={
+                        tag.color === originalColor ? false : !tag.available
+                      }
                     />
                   </DropdownMenuItem>
                   {index < COLORS_TAG.length - 1 && <DropdownSeparator />}
