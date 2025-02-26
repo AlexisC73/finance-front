@@ -11,6 +11,7 @@ import DropdownMenu, {
 import useMenu from "@/hooks/use-menu";
 import { OverlayCtx } from "@/context/overlay/overlay";
 import DeleteBudgetModal from "@/components/modal/budget/delete-budget-modal";
+import EditBudgetModal from "@/components/modal/budget/edit-budget-modal";
 
 interface BudgetCardProps {
   name: string;
@@ -38,12 +39,17 @@ export default function BudgetCard({
   const { displayOverlay } = useContext(OverlayCtx);
 
   const handleShowDeleteModal = () => {
+    closeMenu();
     displayOverlay(
       <DeleteBudgetModal
         budgetName={name}
         onConfirm={() => new Promise((resolve) => setTimeout(resolve, 1000))}
       />,
     );
+  };
+
+  const handleShowEditModal = () => {
+    displayOverlay(<EditBudgetModal />);
   };
 
   return (
@@ -60,12 +66,12 @@ export default function BudgetCard({
               <DotsMenuIcon className="text-grey-300" />
             </DropdownButton>
             <DropdownMenu isOpen={dropdownOpen}>
-              <DropdownMenuItem>
-                <button>Edit Budget</button>
+              <DropdownMenuItem action={handleShowEditModal}>
+                Edit Budget
               </DropdownMenuItem>
               <li className="h-px w-full bg-grey-100" />
-              <DropdownMenuItem isRed>
-                <button onClick={handleShowDeleteModal}>Delete Budget</button>
+              <DropdownMenuItem isRed action={handleShowDeleteModal}>
+                Delete Budget
               </DropdownMenuItem>
             </DropdownMenu>
           </Dropdown>

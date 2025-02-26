@@ -35,23 +35,22 @@ export default function SortDropdown({
         <Dropdown closeDropdown={() => setShowSortMenu(false)}>
           <DropdownButton action={handleToggleSortMenu}>
             <div className="hidden md:block">
-              <SelectButton action={() => {}}>{currentSort}</SelectButton>
+              <SelectButton>{currentSort}</SelectButton>
             </div>
-            <button className="md:hidden">
+            <div className="md:hidden">
               <SortIcon />
-            </button>
+            </div>
           </DropdownButton>
           <DropdownMenu customClassName="md:left-0" isOpen={showSortMenu}>
             {sortOptions.map((option, index) => (
-              <React.Fragment>
-                <button
-                  onClick={() => handleUpdateSort(option)}
-                  className="text-left"
+              <React.Fragment key={option}>
+                <DropdownMenuItem
+                  action={() => handleUpdateSort(option)}
+                  isBold={currentSort === option}
+                  key={index}
                 >
-                  <DropdownMenuItem isBold={currentSort === option} key={index}>
-                    {option}
-                  </DropdownMenuItem>
-                </button>
+                  {option}
+                </DropdownMenuItem>
                 {index < sortOptions.length - 1 && <DropdownSeparator />}
               </React.Fragment>
             ))}

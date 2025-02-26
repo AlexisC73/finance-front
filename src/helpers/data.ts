@@ -186,3 +186,13 @@ export const RECURRING_TRANSACTIONS: {
   imageUrl: "https://placehold.co/500",
   error: Math.random() > 0.5,
 }));
+
+export const COLORS_TAG: { color: COLORS; active: boolean }[] = [
+  { color: COLORS.GREEN, active: true },
+  { color: COLORS.YELLOW, active: true },
+  { color: COLORS.CYAN, active: true },
+  { color: COLORS.NAVY, active: true },
+  { color: COLORS.RED, active: false },
+  { color: COLORS.PURPLE, active: false },
+  { color: COLORS.TURQUOISE, active: false },
+];
