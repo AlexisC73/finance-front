@@ -46,9 +46,7 @@ export default function TransactionFilters() {
         <p className="text-preset-4 hidden md:block text-grey-500">Category</p>
         <div className="relative w-full md:w-44.25" ref={categoryRef}>
           <div className="hidden md:flex">
-            <SelectButton action={handleToggleCategoryMenu}>
-              {currentCaterogy}
-            </SelectButton>
+            <SelectButton>{currentCaterogy}</SelectButton>
           </div>
           <button className="md:hidden">
             <FilterIcon onClick={handleToggleCategoryMenu} />

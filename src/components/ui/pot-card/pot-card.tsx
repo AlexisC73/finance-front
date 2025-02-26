@@ -43,13 +43,9 @@ export default function PotCard({
               <DotsMenuIcon className="text-grey-300" />
             </DropdownButton>
             <DropdownMenu isOpen={dropdownOpen}>
-              <DropdownMenuItem>
-                <button>Edit Pot</button>
-              </DropdownMenuItem>
+              <DropdownMenuItem>Edit Pot</DropdownMenuItem>
               <li className="h-px w-full bg-grey-100" />
-              <DropdownMenuItem isRed>
-                <button>Delete Pot</button>
-              </DropdownMenuItem>
+              <DropdownMenuItem isRed>Delete Pot</DropdownMenuItem>
             </DropdownMenu>
           </Dropdown>
         </div>
