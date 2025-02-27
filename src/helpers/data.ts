@@ -1,5 +1,25 @@
 import { COLORS } from "@/theme/colors";
 
+export enum CATEGORIES {
+  "ENTERNTAINMENT" = "Enterntainment",
+  "BILLS" = "Bills",
+  "GROCERIES" = "Groceries",
+  "DINING_OUT" = "Dining Out",
+  "TRANSPORTATION" = "Transportation",
+  "PERSONAL_CARE" = "Personal Care",
+  "EDUCTION" = "Education",
+}
+
+export const CATEGORIES_LIST = [
+  CATEGORIES.ENTERNTAINMENT,
+  CATEGORIES.BILLS,
+  CATEGORIES.GROCERIES,
+  CATEGORIES.DINING_OUT,
+  CATEGORIES.TRANSPORTATION,
+  CATEGORIES.PERSONAL_CARE,
+  CATEGORIES.EDUCTION,
+];
+
 export const BUDGETS: {
   name: string;
   goal: string;

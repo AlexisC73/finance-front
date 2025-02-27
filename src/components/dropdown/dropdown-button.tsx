@@ -5,7 +5,7 @@ export default function DropdownButton({
   action,
 }: PropsWithChildren & { action: () => void; fullWidth?: boolean }) {
   return (
-    <button className="w-full text-left" onClick={action}>
+    <button type="button" className="w-full text-left" onClick={action}>
       {children}
     </button>
   );

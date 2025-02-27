@@ -49,7 +49,6 @@ export default function BudgetCard({
 
   const handleShowEditModal = () => {
     closeMenu();
-    console.log("Edit budget", color);
     displayOverlay(<EditBudgetModal originalColor={color} />);
   };
 

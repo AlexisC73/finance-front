@@ -16,7 +16,12 @@ export default function DropdownMenuItem({
     <li
       className={`text-preset-4 ${isRed ? "text-red" : "text-grey-900"} ${isBold ? "font-bold" : ""}`}
     >
-      <button disabled={disabled} onClick={action} className="w-full text-left">
+      <button
+        type="button"
+        disabled={disabled}
+        onClick={action}
+        className="w-full text-left"
+      >
         {children}
       </button>
     </li>
