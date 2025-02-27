@@ -38,8 +38,7 @@ export default function EditBudgetModal({
         </button>
       </div>
       <p className="text-preset-4 text-grey-500">
-        Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Phasellus
-        hendrerit. Pellentesque aliquet nibh nec urna. In nisi neque, aliquet.
+        As your budgets change, feel free to update your spending limits.
       </p>
       <div className="flex flex-col gap-y-4">
         <CategorySelect label="Budget Category" name="selected-category" />

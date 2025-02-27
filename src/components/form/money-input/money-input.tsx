@@ -1,9 +1,11 @@
 export default function MoneyInput({
   label,
   name,
+  defaultValue,
 }: {
   label: string;
   name: string;
+  defaultValue?: string;
 }) {
   return (
     <div id="money-input">
@@ -18,6 +20,8 @@ export default function MoneyInput({
           id={name}
           type="text"
           name={name}
+          placeholder="e.g. 2000"
+          defaultValue={defaultValue}
           className="flex-1 outline-none text-preset-4"
         />
       </div>
