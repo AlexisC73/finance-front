@@ -2,9 +2,9 @@ import { SortIcon } from "@/assets/icons/icons";
 import Dropdown from "@/components/dropdown/dropdown";
 import DropdownButton from "@/components/dropdown/dropdown-button";
 import DropdownMenu, {
-  DropdownMenuItem,
   DropdownSeparator,
 } from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import DropdownMenuItem from "@/components/dropdown/dropdown-menu/dropdown-menu-item";
 import SelectButton from "@/components/select/select-button";
 import React, { useState } from "react";
 

@@ -2,9 +2,8 @@ import { DotsMenuIcon } from "@/assets/icons/icons";
 import Button from "@/components/button/button";
 import Dropdown from "@/components/dropdown/dropdown";
 import DropdownButton from "@/components/dropdown/dropdown-button";
-import DropdownMenu, {
-  DropdownMenuItem,
-} from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import DropdownMenu from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import DropdownMenuItem from "@/components/dropdown/dropdown-menu/dropdown-menu-item";
 import useDropdown from "@/hooks/use-menu";
 import { colorClass, COLORS } from "@/theme/colors";
 

@@ -4,9 +4,9 @@ import ColorTag from "@/components/color-tag/color-tag";
 import Dropdown from "@/components/dropdown/dropdown";
 import DropdownButton from "@/components/dropdown/dropdown-button";
 import DropdownMenu, {
-  DropdownMenuItem,
   DropdownSeparator,
 } from "@/components/dropdown/dropdown-menu/dropdown-menu";
+import DropdownMenuItem from "@/components/dropdown/dropdown-menu/dropdown-menu-item";
 import DropdownTagOption from "@/components/dropdown/dropdown-tag-option";
 import SelectButton from "@/components/select/select-button";
 import { OverlayCtx } from "@/context/overlay/overlay";
